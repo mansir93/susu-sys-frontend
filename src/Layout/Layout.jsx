@@ -10,7 +10,6 @@ const Layout = () => {
   return (
     <div className="min-h-screen h-screen w-full fixed">
       <Navbar />
-
       {/* Content */}
       <div className="flex h-full">
         <Sidebar />
