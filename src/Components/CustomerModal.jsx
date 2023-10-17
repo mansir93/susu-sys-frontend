@@ -2,6 +2,7 @@ import { FaUserCircle } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import { useAxios } from "../utils/ApiHook";
 import CustomerTransactions from "./CustomerTransactions";
+import isEqual from "lodash/isEqual";
 
 const CustomerModal = ({ id, setOpenCustomer, openCustomer }) => {
   const { data, isLoading, ApiRequest } = useAxios();
@@ -12,7 +13,7 @@ const CustomerModal = ({ id, setOpenCustomer, openCustomer }) => {
   }, [customer]);
 
   useEffect(() => {
-    if (data) {
+    if (data && !isEqual(data, customer)) {
       setCustomer(data);
     }
   }, [data]);
@@ -26,16 +27,16 @@ const CustomerModal = ({ id, setOpenCustomer, openCustomer }) => {
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Full name
+                  Full Name
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Email
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  phoneNumber
+                  Phone Number
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  account Balance
+                  Account Balance
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Address

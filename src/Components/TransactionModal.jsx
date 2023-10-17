@@ -1,6 +1,7 @@
 import { FaUserCircle } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import { useAxios } from "../utils/ApiHook";
+import isEqual from "lodash/isEqual";
 
 const TransactionModal = ({ id, setOpenTransaction, openTransaction }) => {
   const { data, isLoading, ApiRequest } = useAxios();
@@ -11,7 +12,7 @@ const TransactionModal = ({ id, setOpenTransaction, openTransaction }) => {
   }, [Transaction]);
 
   useEffect(() => {
-    if (data) {
+    if (data && !isEqual(data, Transaction)) {
       setTransaction(data);
     }
   }, [data]);
@@ -58,7 +59,7 @@ const TransactionModal = ({ id, setOpenTransaction, openTransaction }) => {
                   Email
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  phoneNumber
+                  Phone Number
                 </th>
 
                 <th scope="col" className="px-6 py-3">
@@ -97,7 +98,7 @@ const TransactionModal = ({ id, setOpenTransaction, openTransaction }) => {
                   Email
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  phoneNumber
+                  Phone Number
                 </th>
               </tr>
             </thead>{" "}

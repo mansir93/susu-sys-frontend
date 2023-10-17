@@ -20,10 +20,10 @@ const RecentTransactions = () => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3">
-              type
+              Type
             </th>
             <th scope="col" className="px-6 py-3">
-              Amout
+              Amount
             </th>
           </tr>
         </thead>{" "}
@@ -33,8 +33,8 @@ const RecentTransactions = () => {
               key={1}
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
-              <td className="px-6 py-4">{transaction.type}</td>
-              <td className="px-6 py-4">{transaction.amount}</td>
+              <td className="px-6 py-4">{transaction?.type}</td>
+              <td className="px-6 py-4">{transaction?.amount}</td>
             </tr>
           ))}
         </tbody>

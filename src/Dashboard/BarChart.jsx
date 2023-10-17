@@ -10,12 +10,12 @@ const BarChart = ({ counts }) => {
       },
       xaxis: {
         categories: [
-          "totalCustomers",
-          "totalTransactions",
-          "totalAccountBalance",
-          "averageAccountBalance",
-          "totalDeposits",
-          "totalWithdrawals",
+          "Total Customers",
+          "Total Transactions",
+          "Total Account Balance",
+          "Average Account Balance",
+          "Total Deposits",
+          "Total Withdrawals",
         ],
       },
       plotOptions: {
@@ -50,7 +50,7 @@ const BarChart = ({ counts }) => {
     },
     series: [
       {
-        name: "total counts",
+        name: "Total Counts",
 
         data: [
           counts?.totalCustomers || 0,

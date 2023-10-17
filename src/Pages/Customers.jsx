@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useAxios } from "../utils/ApiHook";
 import Swal from "sweetalert2";
+import isEqual from "lodash/isEqual";
 
 import {
   Card,
@@ -37,17 +38,16 @@ const Customers = () => {
   // console.log(data);
 
   useEffect(() => {
-    if (data) {
+    ApiRequest("/customers/", "GET", null, params);
+  }, [params, customers, addCustomer]);
+
+  useEffect(() => {
+    if (data && !isEqual(data.customers, customers)) {
       setCustomers(data.customers);
     }
   }, [data]);
 
-  useEffect(() => {
-    ApiRequest("/customers/", "GET", null, params);
-  }, [params, customers]);
-
   const deletecustomer = (id) => {
-    console.log(id);
     ApiRequest("/customers/" + id, "DELETE", null, null);
   };
 
@@ -105,7 +105,7 @@ const Customers = () => {
             <div className="w-full md:w-72">
               <Input
                 label="id"
-                icon={"i"}
+                icon={""}
                 color="blue"
                 onChange={(e) => setParams({ ...params, id: e.target.value })}
               />
@@ -113,7 +113,7 @@ const Customers = () => {
             <div className="w-full md:w-72">
               <Input
                 label="name"
-                icon={"i"}
+                icon={""}
                 color="blue"
                 onChange={(e) => setParams({ ...params, name: e.target.value })}
               />
@@ -121,7 +121,7 @@ const Customers = () => {
             <div className="w-full md:w-72">
               <Input
                 label="email"
-                icon={"i"}
+                icon={""}
                 color="blue"
                 onChange={(e) =>
                   setParams({ ...params, email: e.target.value })

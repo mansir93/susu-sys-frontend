@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import { saveToCookie } from "../utils/Cookie";
+import { saveToCookie, getCookie } from "../utils/Cookie";
 import { useAxios } from "../utils/ApiHook";
 
 const Login = () => {
+  const token = getCookie("susu_auth");
   const { data, isLoading, ApiRequest } = useAxios();
   const navigate = useNavigate();
-  
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,12 +17,19 @@ const Login = () => {
     e.preventDefault();
     ApiRequest("/auth/signin/", "POST", formData);
   };
+
   useEffect(() => {
     if (data) {
       saveToCookie("susu_auth", data.token, 5);
-      navigate("/home");
+      navigate("/");
     }
   }, [data, navigate]);
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  });
 
   return (
     <>

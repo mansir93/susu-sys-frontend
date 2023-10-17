@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAxios } from "../utils/ApiHook";
+import isEqual from "lodash/isEqual";
+
 import {
   Card,
   CardHeader,
@@ -33,14 +35,13 @@ const Transactions = () => {
   const { data, error, isLoading, ApiRequest } = useAxios();
 
   useEffect(() => {
-    if (data && data.transactions !== Transactions) {
-      setTransactions(data.transactions);
-    }
-  }, [data, Transactions]);
-
-  useEffect(() => {
     ApiRequest("/transactions/", "GET", null, params);
   }, [params, Transactions]);
+  useEffect(() => {
+    if (data && !isEqual(data.transactions, Transactions)) {
+      setTransactions(data?.transactions);
+    }
+  }, [data]);
 
   const deleteTransaction = (id) => {
     console.log(id);
@@ -72,15 +73,15 @@ const Transactions = () => {
             <div className="w-full md:w-72">
               <Input
                 label="Transactions ID"
-                icon={"i"}
+                icon={""}
                 color="blue"
                 onChange={(e) => setParams({ ...params, id: e.target.value })}
               />
             </div>
             <div className="w-full md:w-72">
               <Input
-                label="customer ID"
-                icon={"i"}
+                label="Customer ID"
+                icon={""}
                 color="blue"
                 onChange={(e) =>
                   setParams({ ...params, customerId: e.target.value })
@@ -89,8 +90,8 @@ const Transactions = () => {
             </div>
             <div className="w-full md:w-72">
               <Input
-                label="staff ID"
-                icon={"i"}
+                label="Staff ID"
+                icon={""}
                 color="blue"
                 onChange={(e) =>
                   setParams({ ...params, staffId: e.target.value })
@@ -100,7 +101,7 @@ const Transactions = () => {
             <div className="w-full md:w-72">
               <Input
                 label="Amount"
-                icon={"i"}
+                icon={""}
                 color="blue"
                 onChange={(e) =>
                   setParams({ ...params, amount: e.target.value })
@@ -153,7 +154,7 @@ const Transactions = () => {
                             color="blue-gray"
                             className="font-normal"
                           >
-                            {Transaction._id}
+                            {Transaction?._id}
                           </Typography>
                         </div>
                       </div>
@@ -165,7 +166,7 @@ const Transactions = () => {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {Transaction.amount}
+                          {Transaction?.amount}
                         </Typography>
                       </div>
                     </td>
@@ -177,7 +178,7 @@ const Transactions = () => {
                           color="blue-gray"
                           className="font-normal opacity-70"
                         >
-                          {Transaction.type}
+                          {Transaction?.type}
                         </Typography>
                       </div>
                     </td>
@@ -199,18 +200,18 @@ const Transactions = () => {
                           color="blue-gray"
                           className="font-normal opacity-70"
                         >
-                          {Transaction.staffId.firstName}
+                          {Transaction?.staffId?.firstName}
                         </Typography>
                       </div>
                     </td>
 
                     <td>
-                      <Tooltip content={Transaction?.customerId.fullName}>
+                      <Tooltip content={Transaction?.customerId?.fullName}>
                         <IconButton
                           variant="text"
                           onClick={() => {
                             setOpenTransaction(true);
-                            setselectedTransaction(Transaction._id);
+                            setselectedTransaction(Transaction?._id);
                           }}
                         >
                           open
@@ -230,7 +231,7 @@ const Transactions = () => {
                               confirmButtonText: "Yes, delete it!",
                             }).then((result) => {
                               if (result.isConfirmed) {
-                                deleteTransaction(Transaction._id);
+                                deleteTransaction(Transaction?._id);
                               }
                             });
                           }}

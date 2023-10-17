@@ -92,7 +92,7 @@ const CustomerTransactions = ({ id, setOpenCustomer, openCustomer }) => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal leading-none opacity-70"
+                      className="uppercase font-normal leading-none opacity-70"
                     >
                       {head}
                     </Typography>
@@ -112,7 +112,7 @@ const CustomerTransactions = ({ id, setOpenCustomer, openCustomer }) => {
                             color="blue-gray"
                             className="font-normal"
                           >
-                            {Transaction._id}
+                            {Transaction?._id}
                           </Typography>
                         </div>
                       </div>
@@ -124,7 +124,7 @@ const CustomerTransactions = ({ id, setOpenCustomer, openCustomer }) => {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {Transaction.amount}
+                          {Transaction?.amount}
                         </Typography>
                       </div>
                     </td>
@@ -136,7 +136,7 @@ const CustomerTransactions = ({ id, setOpenCustomer, openCustomer }) => {
                           color="blue-gray"
                           className="font-normal opacity-70"
                         >
-                          {Transaction.type}
+                          {Transaction?.type}
                         </Typography>
                       </div>
                     </td>
@@ -148,7 +148,7 @@ const CustomerTransactions = ({ id, setOpenCustomer, openCustomer }) => {
                           color="blue-gray"
                           className="font-normal opacity-70"
                         >
-                          {Transaction.staffId.firstName}
+                          {Transaction?.staffId?.firstName}
                         </Typography>
                       </div>
                     </td>

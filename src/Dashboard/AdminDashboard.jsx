@@ -20,7 +20,7 @@ const AdminDashboard = ({ counts, loading }) => {
             <h1 className="text-xl text-blue-600  font-bold">
               {loading ? <Spinner color="blue" /> : counts?.totalAccountBalance}
             </h1>
-            <p>totalAccountBalance</p>
+            <p>Total Account Balance</p>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ const AdminDashboard = ({ counts, loading }) => {
             <h1 className="text-xl text-blue-600  font-bold">
               {loading ? <Spinner color="blue" /> : counts?.totalCustomers}
             </h1>
-            <p>totalCustomers</p>
+            <p>Total Customers</p>
           </div>
         </div>
         <div className="flex-1 flex items-center gap-4 bg-white rounded-3xl shadow-xl px-8 py-4">
@@ -49,7 +49,7 @@ const AdminDashboard = ({ counts, loading }) => {
                 counts?.averageAccountBalance
               )}
             </h1>
-            <p> averageAccountBalance</p>
+            <p> Average Account Balance</p>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ const AdminDashboard = ({ counts, loading }) => {
             <h1 className="text-xl text-blue-600  font-bold">
               {loading ? <Spinner color="blue" /> : counts?.totalDeposits}
             </h1>
-            <p>totalDeposits</p>{" "}
+            <p>Total Deposits</p>{" "}
           </div>
         </div>
         <div className="flex-1 flex items-center gap-4 bg-white rounded-3xl shadow-xl px-8 py-4">
@@ -75,7 +75,7 @@ const AdminDashboard = ({ counts, loading }) => {
             <h1 className="text-xl text-blue-600  font-bold">
               {loading ? <Spinner color="blue" /> : counts?.totalTransactions}
             </h1>
-            <p>totalTransactions</p>{" "}
+            <p>Total Transactions</p>{" "}
           </div>
         </div>
         <div className="flex-1 flex items-center gap-4 bg-white rounded-3xl shadow-xl px-8 py-4">
@@ -87,7 +87,7 @@ const AdminDashboard = ({ counts, loading }) => {
             <h1 className="text-xl text-blue-600  font-bold">
               {loading ? <Spinner color="blue" /> : counts?.totalWithdrawals}
             </h1>
-            <p>totalWithdrawals</p>
+            <p>Total Withdrawals</p>
           </div>
         </div>
       </div>

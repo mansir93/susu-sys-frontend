@@ -51,14 +51,14 @@ const SidebarNav = () => {
               component={<NavLink to="/customers" />}
               style={isMenuActive("/customers") ? style : null}
             >
-              customers{" "}
+              Customers{" "}
             </MenuItem>
             <MenuItem
               icon={<BiTransferAlt size={30} />}
               component={<NavLink to="/transactions" />}
               style={isMenuActive("/transactions") ? style : null}
             >
-              transactions
+              Transactions
             </MenuItem>{" "}
           </div>
         </Menu>
