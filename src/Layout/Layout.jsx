@@ -8,7 +8,7 @@ import Transactions from "../Pages/Transactions";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen h-screen w-full fixed">
+    <div className="min-h-screen h-screen w-full">
       <Navbar />
       {/* Content */}
       <div className="flex h-full">

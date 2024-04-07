@@ -28,6 +28,7 @@ const Navbar = () => {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+
   const handlelogout = () => {
     removeCookie("susu_auth");
     navigate("/login");
@@ -51,7 +52,7 @@ const Navbar = () => {
             color="blue"
             className="mr-4 cursor-pointer py-1.5 font-extrabold text-2xl"
           >
-            <Link to="/">SUSU-BANK</Link>
+            <Link to="/">Hotel SYS</Link>
           </Typography>
           <div className="hidden lg:block">{navList}</div>
           <div className="hidden lg:flex gap-4  ">
