@@ -52,7 +52,7 @@ const Navbar = () => {
             color="blue"
             className="mr-4 cursor-pointer py-1.5 font-extrabold text-2xl"
           >
-            <Link to="/">Hotel SYS</Link>
+            <Link to="/">SUSU SYS</Link>
           </Typography>
           <div className="hidden lg:block">{navList}</div>
           <div className="hidden lg:flex gap-4  ">
